@@ -1,0 +1,45 @@
+nav{
+    background-color: #c8acfa;
+    border-radius: 4px;
+    position: fixed;
+}
+body{
+    background-image: url("../img/gamestore.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+ul{
+    list-style-type: none;
+}
+li {
+    margin-left: 5px;
+    padding: 5px;
+    border-left: black solid 1px;
+    height: 100%;
+    margin-top: 10px;
+    color: black;
+}
+a{
+    color: black;
+}
+
+p{
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.jumbotron{
+    padding: 15px;
+    margin: 10px;
+    border-radius: 4px;
+    background-color: rgba(246, 237, 250,0.9);
+}
+
+#AboutUsImage{
+
+    float: right;
+    margin: 5px;
+    width: 300px;
+    height: auto;
+    border-radius: 4px;
+}
