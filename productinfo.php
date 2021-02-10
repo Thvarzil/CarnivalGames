@@ -48,11 +48,11 @@ and open the template in the editor.
                 <label for="products">Our Products</label>
                 <select id="products" name="products">
                     <option value="--">--</option>
-                    <option value="0">Chess</option>
-                    <option value="1">Board Games</option>
-                    <option value="2">Home Escape Room</option>
-                    <option value="3">Murder Parties</option>
-                    <option value="4">Educational Games</option>
+                    <option value=0>Chess</option>
+                    <option value=1>Board Games</option>
+                    <option value=2>Home Escape Room</option>
+                    <option value=3>Murder Parties</option>
+                    <option value=4>Educational Games</option>
                 </select>
                 <label for="location">Your Location</label>
                 <select id="location" name="location">

@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en-us">
     <head>
         <title>Craft Cookie Cottage</title>
         <meta charset="UTF-8">
@@ -20,10 +20,12 @@ and open the template in the editor.
     <?php
         $productid = $_POST['products'];
         $username = ucwords(strtolower(htmlentities($_POST['name'])));
-        $locations = explode(",", file_get_contents("./text/servicearea.txt"));
         $userlocation = $_POST['location'];
-        $productinfo = explode("\n", file_get_contents("./text/productinfo.txt"));
-        $productnames = ['Chess', 'Board Games', 'Home Escape Rooms', 'Murder Parties', 'Educational Games'];
+        $productinfo = explode("}", file_get_contents("./text/productinfo.txt"));
+        //trim { from the beginning of eahc blurb
+        for($i=0;$i<sizeof($productinfo);$i++){$productinfo[$i]=ltrim($productinfo[$i], "{");}
+        $locations = explode(",", file_get_contents("./text/servicearea.txt"));
+        $productnames = array('Chess', 'Board Games', 'Home Escape Rooms', 'Murder Parties', 'Educational Games');
     ?>
     <container>
         <!--    Bootstrap Horizontal Navbar structure    -->
@@ -53,16 +55,16 @@ and open the template in the editor.
             <?php
             // put your code here
             //Checking if user's state is in area, init as false, turn positive if match
-            $inarea = false;
+            $in_area = false;
             for($i=0;$i<sizeof($locations); $i++){
                 if($userlocation==$locations[$i]){
-                    $inarea=true;
+                    $in_area=true;
                     break;
                 }
             }
             //print information as dictated by user input
             print("<p>Hello,".$username.". The product you requested - ".$productnames[$productid]);
-            if($inarea){
+            if($in_area){
                 print(" - is available in your selected state of ".$userlocation." We hope the following information is useful to you.</p><br>");
             }
             else{
@@ -71,19 +73,19 @@ and open the template in the editor.
             }
             switch ($productid){
                 case 0:
-                    print("<img src='./img/chess1.jpg' class='gameimage'>");
+                    print("<img src='./img/chess1.jpg' class='gameimage' alt=''>");
                     break;
                 case 1:
-                    print("<img src='./img/boardgame1.jpg' class='gameimage'>");
+                    print("<img src='./img/boardgame1.jpg' class='gameimage' alt=''>");
                     break;
                 case 2:
-                    print("<img src='./img/escaperoom1.jpg' class='gameimage'>");
+                    print("<img src='./img/escaperoom1.jpg' class='gameimage' alt=''>");
                     break;
                 case 3:
-                    print("<img src='./img/murderparty1.jpg' class='gameimage'>");
+                    print("<img src='./img/murderparty1.jpg' class='gameimage'  alt=''>");
                     break;
                 case 4:
-                    print("<img src='./img/educationgame1.jpg' class='gameimage'>");
+                    print("<img src='./img/educationgame1.jpg' class='gameimage' alt=''>");
                     break;
             }
 
