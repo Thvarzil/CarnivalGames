@@ -19,6 +19,29 @@ and open the template in the editor.
 <body>
 
 <container>
+    <!--    Bootstrap Horizontal Navbar structure    -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Craft Cookie Cottage</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./productform.php">Product Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order Online</a>
+            </li>
+        </ul>
+
+    </nav>
+    <!--User input form for product information-->
     <div class="jumbotron">
         <form method="post" action="response.php">
             <div class="form-group">
@@ -35,9 +58,12 @@ and open the template in the editor.
                 <select id="location" name="location">
                     <option value="--">--</option>
                     <?php
-                    $locations = explode("\n", file_get_contents("./text/servicearea.txt"));
+                    $locations =['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN',
+                        'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+                        'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
+                        'VA', 'WA', 'WV', 'WI', 'WY'];
                     for ($i = 0; $i < sizeof($locations); $i++) {
-                        print("<option value=" . $i . ">" . $locations[$i] . "</option>");
+                        print("<option value=" . $locations[$i] . ">" . $locations[$i] . "</option>");
                     }
                     ?>
                 </select>
