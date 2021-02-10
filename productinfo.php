@@ -48,20 +48,19 @@ and open the template in the editor.
                 <label for="products">Our Products</label>
                 <select id="products" name="products">
                     <option value="--">--</option>
-                    <option value="Chess">--</option>
-                    <option value="Board Games">Board Games</option>
-                    <option value="Home Escape Rooms">Home Escape Room</option>
-                    <option value="Murder Parties">Murder Parties</option>
-                    <option value="Educational Games">Educational Games</option>
+                    <option value="0">Chess</option>
+                    <option value="1">Board Games</option>
+                    <option value="2">Home Escape Room</option>
+                    <option value="3">Murder Parties</option>
+                    <option value="4">Educational Games</option>
                 </select>
                 <label for="location">Your Location</label>
                 <select id="location" name="location">
                     <option value="--">--</option>
                     <?php
-                    $locations =['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN',
-                        'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
+                    $locations = array('AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
                         'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT',
-                        'VA', 'WA', 'WV', 'WI', 'WY'];
+                        'VA', 'WA', 'WV', 'WI', 'WY');
                     for ($i = 0; $i < sizeof($locations); $i++) {
                         print("<option value=" . $locations[$i] . ">" . $locations[$i] . "</option>");
                     }

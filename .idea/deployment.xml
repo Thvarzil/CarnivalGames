@@ -5,7 +5,7 @@
       <paths name="SLCCCSIS">
         <serverdata>
           <mappings>
-            <mapping deploy="/var/www/html" local="$PROJECT_DIR$" web="/Carnival/" />
+            <mapping deploy="/var/www/html/CSIS2440/Assignments/AssignmentGames" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

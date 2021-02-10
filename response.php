@@ -18,7 +18,7 @@ and open the template in the editor.
     </head>
     <body>
     <?php
-        $productid = $_POST['product'];
+        $productid = $_POST['products'];
         $username = ucwords(strtolower(htmlentities($_POST['name'])));
         $locations = explode(",", file_get_contents("./text/servicearea.txt"));
         $userlocation = $_POST['location'];
