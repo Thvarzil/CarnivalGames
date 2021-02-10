@@ -71,19 +71,19 @@ and open the template in the editor.
             }
             switch ($productid){
                 case 0:
-                    print("<img src='./img/chess1.jpg' id='GameImage'>");
+                    print("<img src='./img/chess1.jpg' class='gameimage'>");
                     break;
                 case 1:
-                    print("<img src='./img/boardgame1.jpg' id='GameImage'>");
+                    print("<img src='./img/boardgame1.jpg' class='gameimage'>");
                     break;
                 case 2:
-                    print("<img src='./img/escaperoom1.jpg' id='GameImage'>");
+                    print("<img src='./img/escaperoom1.jpg' class='gameimage'>");
                     break;
                 case 3:
-                    print("<img src='./img/murderparty1.jpg' id='GameImage'>");
+                    print("<img src='./img/murderparty1.jpg' class='gameimage'>");
                     break;
                 case 4:
-                    print("<img src='./img/educationgame1.jpg' id='GameImage'>");
+                    print("<img src='./img/educationgame1.jpg' class='gameimage'>");
                     break;
             }
 

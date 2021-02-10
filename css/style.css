@@ -35,7 +35,7 @@ p{
     background-color: rgba(246, 237, 250,0.9);
 }
 
-#GameImage{
+.gameimage{
 
     float: right;
     margin: 5px;
