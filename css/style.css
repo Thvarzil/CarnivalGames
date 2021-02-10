@@ -33,11 +33,9 @@ p{
     margin: 10px;
     border-radius: 4px;
     background-color: rgba(246, 237, 250,0.9);
-    display: inline-block;
 }
 
 .gameimage{
-
     float: right;
     margin: 5px;
     width: 300px;

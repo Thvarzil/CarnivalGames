@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
 <head>
-    <title>Craft Cookie Cottage</title>
+    <title>Carnival Games</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--    Add in Boostrap CSS to help with Navbar, grid placement, and general style consistency    -->
@@ -21,13 +21,13 @@ and open the template in the editor.
 <container>
     <!--    Bootstrap Horizontal Navbar structure    -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Craft Cookie Cottage</a>
+        <a class="navbar-brand" href="#">Carnival Games</a>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./productform.php">Product Info</a>
+                <a class="nav-link" href="./productinfo.php">Product Info</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Sign Up</a>
