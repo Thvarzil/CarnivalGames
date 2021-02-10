@@ -69,6 +69,24 @@ and open the template in the editor.
                 print(" - is not available in your selected state of ".$userlocation." We apologize for the inconvenience, and are working 
                         hard to expand to your area. We hope the following information is useful to you.</p><br>");
             }
+            switch ($productid){
+                case 0:
+                    print("<img src='./img/chess1.jpg' id='GameImage'>");
+                    break;
+                case 1:
+                    print("<img src='./img/boardgame1.jpg' id='GameImage'>");
+                    break;
+                case 2:
+                    print("<img src='./img/escaperoom1.jpg' id='GameImage'>");
+                    break;
+                case 3:
+                    print("<img src='./img/murderparty1.jpg' id='GameImage'>");
+                    break;
+                case 4:
+                    print("<img src='./img/educationgame1.jpg' id='GameImage'>");
+                    break;
+            }
+
             print($productinfo[$productid]);
             ?>
         </div>
