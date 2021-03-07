@@ -42,7 +42,7 @@ and open the template in the editor.
 
 </nav>
 <div class="container-fluid">
-    <div class="jumbotron">
+    <div class="jumbotron" >
         <?php
         require_once 'DataBaseConnection.php';
         // put your code here
@@ -57,14 +57,66 @@ and open the template in the editor.
         switch ($prodaction) {
             case "Add":
                 $query .= "INSERT INTO CSIS2440.Products (`ProductName`,`ProductCatagory`,`ProductImage`,`ProductCost`,`ProductDesc`) VALUES ('$prodname','$prodcat','$prodimg','$prodprice','$proddesc')";
+
+                $result = $con->query($query);
+
+                if(!$result){
+                    echo "Something went wrong...";
+
+                }
+                else{
+                    echo "Your product was added";
+                    /*
+                    $query = "SELECT * FROM CSIS2440.Products WHERE 'ProductName' = $prodname";
+                    $result = $con->query($query);
+                    if($result->num_rows = 1){
+                        $row = $result->fetch_assoc();
+                        echo "<table><tr><th>Product Name</th><th>Product Description</th><th>Product Price</th><th>Product Image</th></tr>";
+                        echo "<tr><td>".$row['ProductName']."</td><td>".$row['ProductDesc']."</td><td>$".$row['ProductCost']."</td><td><img class='resultimage' src=".$row['ProductImage']."></td></tr>";
+                        echo "</table>";
+                    }
+                    else{
+                        echo "Something went wrong fetching your product";
+                    }
+                    */
+                }
                 break;
             case "Update";
-                $query .= "UPDATE CSIS2440.Products SET `ProductImage`='$prodimg', `ProductCost`='$prodimg',`ProductDesc`='$proddesc'";
+                $updated = False;
+                $query .= "UPDATE CSIS2440.Products SET ";
+                if($proddesc){
+                    $query .= "ProductDesc='$proddesc' ";
+                    $updated = true;
+                }
+                if($prodprice){
+                    $query .= "ProductCost='$prodprice' ";
+                    $updated = true;
+                }
+                if($prodimg){
+                    $query .= "ProductImage='$prodimg' ";
+                    $updated = true;
+                }
+
+                if($updated) {
+                    $query .= "WHERE ProductName LIKE '%$prodname%' ";
+
+                    $result = $con->query($query);
+
+                    if (!$result) {
+                        echo "Something went wrong...";
+                    } else {
+                        echo "Your product was updated.";
+                    }
+                }
+                else{
+                    echo "No information to update was entered";
+                }
                 break;
             case "Search":
                 $query .= "SELECT * FROM CSIS2440.Products WHERE `ProductName` LIKE '%$prodname%'";
 
                 //echo $query;
+
                 $result = $con->query($query);
                 if (!$result) {
                     $message = "Whole query " . $query;
@@ -73,21 +125,16 @@ and open the template in the editor.
                 }
                 else{
                     $count = $result->num_rows;
-                    if($count>0){
-                        $row = $result->fetch_assoc();
-                        echo $row['ProductName'];
+
+                    $rows = array();
+                    while($row = $result->fetch_assoc()) {
+                        $rows[] = $row;
                     }
-
+                    echo "<table><tr><th>Product Name</th><th>Product Description</th><th>Product Price</th><th>Product Image</th></tr>";
+                    foreach ($rows as $row){
+                        echo "<tr><td>".$row['ProductName']."</td><td>".$row['ProductDesc']."</td><td>$".$row['ProductCost']."</td><td><img class='resultimage' style='width: 100px' src=".$row['ProductImage']."></td></tr>";
+                    }
                 }
-                /*
-
-                */
-
-                /*echo "<table>";
-                foreach ($result as $row){
-                    echo "<tr><td>".$row['ProductName']."</td></tr>";
-                }
-                echo "</table>";*/
                 break;
             default:
                 echo "something went wrong";

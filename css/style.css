@@ -42,3 +42,10 @@ p{
     height: auto;
     border-radius: 4px;
 }
+.resultimage{
+    float: right;
+    margin: 5px;
+    width: 100px;
+    height: auto;
+    border-radius: 2px;
+}
