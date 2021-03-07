@@ -83,7 +83,7 @@ and open the template in the editor.
                         <td></td>
                         <td></td>
                         <td>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" id="submit">
                         </td>
                     </tr>
                 </table>
