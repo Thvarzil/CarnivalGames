@@ -61,6 +61,11 @@ and open the template in the editor.
                         <td><input name="prodprice" type="number" min="0"></td>
                     </tr>
                     <tr>
+                        <td><label for="prodcat">Product Category:</label></td>
+                        <td></td>
+                        <td><input name="prodcat" type="number" min="0"></td>
+                    </tr>
+                    <tr>
                         <td><label for="proddesc">Product Description:</label></td>
                         <td></td>
                         <td><textarea name="proddesc" rows="5" cols="50"></textarea></td>

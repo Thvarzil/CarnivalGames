@@ -44,30 +44,64 @@ and open the template in the editor.
 <div class="container-fluid">
     <div class="jumbotron">
         <?php
+        require_once 'DataBaseConnection.php';
         // put your code here
         $prodimg = $_POST['prodimg'];
         $prodaction = $_POST['prodaction'];
         $proddesc = $_POST['proddesc'];
         $prodprice = $_POST['prodprice'];
         $prodname = $_POST['prodname'];
-        $query = "USE CSIS2440;";
+        $prodcat = $_POST['prodcat'];
+        $query = "";
 
         switch ($prodaction) {
             case "Add":
-                $query .= "INSERT INTO Products (`ProductName`,`ProductImage`,`ProductCost`,`ProductDesc`) VALUES ('$prodname','$prodimg','$prodprice','$proddesc')";
+                $query .= "INSERT INTO CSIS2440.Products (`ProductName`,`ProductCatagory`,`ProductImage`,`ProductCost`,`ProductDesc`) VALUES ('$prodname','$prodcat','$prodimg','$prodprice','$proddesc')";
                 break;
             case "Update";
-                $query .= "UPDATE Products SET `ProductImage`='$prodimg', `ProductCost`='$prodimg',`ProductDesc`='$proddesc'";
+                $query .= "UPDATE CSIS2440.Products SET `ProductImage`='$prodimg', `ProductCost`='$prodimg',`ProductDesc`='$proddesc'";
                 break;
             case "Search":
-                $query .= "SELECT * FROM `Products` WHERE `ProductName`='$prodname'";
+                $query .= "SELECT * FROM CSIS2440.Products WHERE `ProductName` LIKE '%$prodname%'";
+
+                //echo $query;
+                $result = $con->query($query);
+                if (!$result) {
+                    $message = "Whole query " . $query;
+                    echo $message;
+                    die('Invalid query: ' . mysqli_error($con));
+                }
+                else{
+                    $count = $result->num_rows;
+                    if($count>0){
+                        $row = $result->fetch_assoc();
+                        echo $row['ProductName'];
+                    }
+
+                }
+                /*
+
+                */
+
+                /*echo "<table>";
+                foreach ($result as $row){
+                    echo "<tr><td>".$row['ProductName']."</td></tr>";
+                }
+                echo "</table>";*/
                 break;
             default:
                 echo "something went wrong";
                 break;
         }
 
-        echo $query;
+
+
+        if(!$result){
+            $message = "Whole Query: ".$query;
+            echo $message;
+            die('<br>Invalid Query: '.mysqli_error());
+        }
+
         ?>
     </div>
 </div>
