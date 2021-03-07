@@ -18,8 +18,32 @@ and open the template in the editor.
 </head>
 <body>
 <div class="container-fluid">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Carnival Games</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./productinfo.php">Product Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./productform.php">Product Form</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order Online</a>
+            </li>
+        </ul>
+
+    </nav>
     <div class="jumbotron" style="width: 100%; align-content: center">
-        <h1>Product Form</h1>
+        <h2>Product Form</h2>
     </div>
 
     <div class="jumbotron" style="width: 100%; align-content: center">
