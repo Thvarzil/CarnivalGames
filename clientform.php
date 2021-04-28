@@ -149,7 +149,7 @@
                     </span>
                 </li>
                 <li class="buttons">
-                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" onclick="validate()"/>
                 </li>
             </ul>
         </form>
