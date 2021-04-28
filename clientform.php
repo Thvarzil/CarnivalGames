@@ -14,12 +14,7 @@
 
 </head>
     <body>
-    <?php
-        require_once "DataBaseConnection.php";
-        function new_record(){
 
-        }
-    ?>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">Carnival Games</a>
         <ul class="navbar-nav mr-auto">
@@ -45,7 +40,7 @@
 
     </nav>
     <div class="jumbotron">
-        <form id="form_11683" class="appnitro"  method="post" action="completed.php">
+        <form id="form_11683" class="appnitro"  method="post" action="completed.php" onsubmit="return validate();">
             <div class="form_description">
                 <h2>New Client</h2>
                 <p>Sign up for our newsletter</p>
@@ -148,16 +143,16 @@
                         <label for="bday_3">YYYY</label>
                     </span>
                 </li>
+                <li id="li_10">
+                    <label class="description" for="new">New User?</label>
+                    <input type="checkbox" name="new" id="new" value="new">
+                </li>
                 <li class="buttons">
-                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" onclick="function (){
-
-                        if (validate) {
-                            this.preventDefault();
-                        }
-                    }"/>
+                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
                 </li>
             </ul>
         </form>
+
     </div>
     </body>
 </html>
