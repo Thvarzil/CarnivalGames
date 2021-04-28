@@ -1,4 +1,4 @@
-function validate(){
+function validate(e){
     var error = false;
 
     const reg_array = {
@@ -25,6 +25,7 @@ function validate(){
     }
 
     if(!(error_msg==="")){
+        e.preventDefault()
         alert(error_msg);
         error=true;
     }
