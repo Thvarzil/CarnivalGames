@@ -65,7 +65,7 @@ and open the template in the editor.
                         <a class="nav-link" href="#">Newsletter Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Order Online</a>
+                        <a class="nav-link" href="onlineorder.php">Order Online</a>
                     </li>
                 </ul>
             </div>

@@ -1,3 +1,9 @@
+<?php
+if(!isset($_SESSION['login'])){
+    header("Location: ./login.php");
+    die;
+}
+?>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Carnival Games</title>
@@ -10,12 +16,7 @@
     <link rel="icon" href="./img/favicon.png">
 </head>
 <body>
-<?php
-if(!isset($_SESSION['login'])){
-    header("./login.php");
-    die;
-}
-?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
