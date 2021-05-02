@@ -10,36 +10,35 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--    Add in Boostrap CSS to help with Navbar, grid placement, and general style consistency    -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <!--    Establish custom favicon for flair    -->
     <link rel="icon" href="./img/favicon.png">
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Carnival Games</a>
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./productinfo.php">Product Info</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./productform.php">Product Form</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="login.php">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Order Online</a>
-        </li>
-    </ul>
 
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="productinfo.php">Product Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="clientform.php">Newsletter Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="productform.php">Inventory Form</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="onlineorder.php">Order Online</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 <div class="container-fluid">
     <div class="jumbotron" >
