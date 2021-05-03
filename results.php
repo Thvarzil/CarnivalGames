@@ -37,6 +37,14 @@ and open the template in the editor.
             <li class="nav-item">
                 <a class="nav-link" href="onlineorder.php">Order Online</a>
             </li>
+            <?php
+            if (isset($_SESSION['login'])){
+                echo "<li class='nav-item'><a class='nav-link' href='destroy.php' >Log Out</a></li>";
+            }
+            else{
+                echo "<li class='nav-item'><a class='nav-link' href='login.php'>Log In</a></li>";
+            }
+            ?>
         </ul>
     </div>
 </nav>
