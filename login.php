@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "DataBaseConnection.php";
-
 if($_POST['fname']!="") {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -24,6 +23,17 @@ if($_POST['fname']!="") {
         unset($_POST);
         die;
     }
+}
+else if(!isset($_SESSION['log_status'])){
+    $_SESSION['log_status']=TRUE;
+}
+else if($_SESSION['logout']){
+    echo "<script>alert('You have been logged out!')</script>";
+    $_SESSION['logout'] = FALSE;
+}
+else if(!$_SESSION['log_status']){
+    echo "<script>alert('Your username and password combination did not match our records.')</script>";
+    $_SESSION['log_status'] = TRUE;
 }
 ?>
 
