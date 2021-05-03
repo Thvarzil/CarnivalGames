@@ -1,3 +1,32 @@
+<?php
+session_start();
+require_once "DataBaseConnection.php";
+
+if($_POST['fname']!="") {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $newuname = $_POST['newuname'];
+    $newpass = hash('ripemd128', $_POST['newpass']);
+    $sql = "INSERT INTO CSIS2440.Users (UserName, UserPass, FirstName, LastName, Email) VALUES ('" . $newuname . "','" . $newpass . "','" . $fname . "','" . $lname . "','" . $email . "')";
+    $success = $con->query($sql);
+    if ($success == FALSE) {
+        $failmess = "Whole query " . $success . "<br>";
+        echo $failmess;
+        print('Invalid query: ' . mysqli_error($con) . "<br>");
+        unset($_POST);
+
+    } else {
+        $_SESSION['login'] = $newuname;
+        header('Location: ./onlineorder.php');
+        //echo "<a href='onlineorder.php'>Redirect</a>";
+        echo $_SESSION['login'];
+        unset($_POST);
+        die;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -16,35 +45,6 @@ and open the template in the editor.
     <link rel="icon" href="./img/favicon.png">
 </head>
     <body>
-        <?php
-        // put your code here
-        ?>
-        <!--
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">Carnival Games</a>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="productinfo.php">Product Info</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="clientform.php">Newsletter Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="productform.php">Product Form</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Order Online</a>
-                </li>
-            </ul>
-
-        </nav>
-        -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Carnival Games</a>
 
@@ -73,20 +73,21 @@ and open the template in the editor.
             <div class="row">
                 <div class="col" style="border-right: black 1px">
                     <h2>Login:</h2>
-                    <form>
+                    <form method="post" action="logincheck.php">
                         <div class="row">
                             <label for="uname">Username:</label>
                             <input type="text" name="uname" id="uname">
                         </div>
                         <div class="row">
                             <label for="pass">Password:</label>
-                            <input type="password" name="pass" id="pass">
+                            <input type="text" name="pass" id="pass">
                         </div>
+                        <input type="submit" value="Log In">
                     </form>
                 </div>
                 <div class="col" style="border-left: black 1px">
                     <h2>New User Registration</h2>
-                    <form>
+                    <form method="post" action="login.php">
                         <div class="row">
                             <label for="fname">First Name:</label>
                             <input type="text" name="fname" id="fname">
@@ -105,8 +106,9 @@ and open the template in the editor.
                         </div>
                         <div class="row">
                             <label for="newpass">Password:</label>
-                            <input type="password" name="newpass" id="newpass">
+                            <input type="text" name="newpass" id="newpass">
                         </div>
+                        <input type="submit" value="Register">
                     </form>
                 </div>
             </div>

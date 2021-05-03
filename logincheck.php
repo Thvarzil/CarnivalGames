@@ -1,41 +1,28 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Carnival Games</a>
+<?php
+session_start();
+require_once "DataBaseConnection.php";
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+$login = $_POST['uname'];
+$pass = hash('ripemd128', $_POST['pass']);
 
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="productinfo.php">Product Info</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="clientform.php">Newsletter Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="productform.php">Inventory Form</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="onlineorder.php">Order Online</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+
+$sql = "SELECT * FROM CSIS2440.Users WHERE UserName='".$login."';";
+
+$result = $con->query($sql);
+$row = $result->fetch_assoc();
+$realpass = $row['UserPass'];
+
+if($result->num_rows==0){
+    echo "Your username is invalid";
+}
+else if($realpass==$pass){
+    session_unset();
+    $_SESSION['login'] = $login;
+    header("Location: onlineorder.php");
+    die;
+}
+else{
+    $_SESSION['log_status'] = FALSE;
+    header("Location: login.php");
+    die;
+}

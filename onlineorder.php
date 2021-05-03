@@ -1,5 +1,7 @@
 <?php
-if(!isset($_SESSION['login'])){
+session_start();
+$active_user = $_SESSION['login'];
+if($active_user==""){
     header("Location: ./login.php");
     die;
 }
@@ -38,8 +40,18 @@ if(!isset($_SESSION['login'])){
             <li class="nav-item">
                 <a class="nav-link" href="onlineorder.php">Order Online</a>
             </li>
+            <?php
+                if (isset($_SESSION['login'])){
+                    echo "<li class='nav-item'><a class='nav-link' href='destroy.php' >Log Out</a></li>";
+                }
+                else{
+                    echo "<li class='nav-item'><a class='nav-link' href='login.php'>Log In</a></li>";
+                }
+            ?>
         </ul>
     </div>
 </nav>
+<div class="jumbotron"><h2 id="activeuser"><?php echo $active_user; ?></h2></div>
+
 </body>
 </html>
