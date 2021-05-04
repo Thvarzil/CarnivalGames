@@ -90,7 +90,7 @@ and open the template in the editor.
                         </div>
                         <div class="row">
                             <label for="pass">Password:</label>
-                            <input type="text" name="pass" id="pass">
+                            <input type="password" name="pass" id="pass">
                         </div>
                         <input type="submit" value="Log In">
                     </form>
@@ -116,7 +116,7 @@ and open the template in the editor.
                         </div>
                         <div class="row">
                             <label for="newpass">Password:</label>
-                            <input type="text" name="newpass" id="newpass">
+                            <input type="password" name="newpass" id="newpass">
                         </div>
                         <input type="submit" value="Register">
                     </form>
